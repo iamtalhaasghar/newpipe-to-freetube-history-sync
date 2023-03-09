@@ -34,7 +34,7 @@ for row in rows:
             "description": "",
             "viewCount": row['view_count'],
             "lengthSeconds": row['duration'],
-            "watchProgress": state['progress_time']//1000,
+            "watchProgress": state['progress_time']//1000 if state else 0,
             "timeWatched": history['access_date'],
             "isLive": False,
             "paid": False,
@@ -45,7 +45,7 @@ for row in rows:
         newpipe_history.append(data)
     except Exception as e:
         continue
-
+print('Bad rows:', len(rows)-len(newpipe_history))
 with open('newpipe_tofreetube.db', 'w') as f:
     for i in newpipe_history:
         f.write(json.dumps(i)+'\n')
