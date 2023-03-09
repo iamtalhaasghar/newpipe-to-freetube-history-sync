@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+freetube.json
+newpipe.json
+newpipe_tofreetube.db
